@@ -25,8 +25,9 @@ export default function Main() {
       <div className="all-market">
         {console.log(data)}
         {data &&
-          data.map((single) => (
+          data.map((single, i) => (
             <SingleMarket
+              key={i}
               exchange={single.exchange}
               exchangeDataDelayedBy={single.exchangeDataDelayedBy}
               exchangeTimezoneName={single.exchangeTimezoneName}
