@@ -1,7 +1,10 @@
+import Login from './Login';
+import Logout from './Logout';
+
 export default function Main() {
   return (
     <div>
-      <div></div>
+      <Logout />
     </div>
   );
 }
