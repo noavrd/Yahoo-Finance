@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { firebaseAuth } from '../auth';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 export default function Register(params) {
   const [email, setEmail] = useState('');

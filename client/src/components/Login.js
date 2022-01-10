@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 export default function Login() {
   const [emailLog, setEmailLog] = useState('');
   const [passwordLog, setPasswordLog] = useState('');
@@ -42,7 +43,7 @@ export default function Login() {
         Sign In with google
       </button>
       <h3>Don't have a user yet?</h3>
-      <button>Register</button>
+      <Link to={'/register'}>Register</Link>
     </div>
   );
 }
