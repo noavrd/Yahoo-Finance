@@ -27,23 +27,30 @@ export default function Login() {
   };
 
   return (
-    <div>
-      <h1>LogIn</h1>
-      <input
-        placeholder="Email"
-        onChange={(e) => setEmailLog(e.target.value)}
-      />
-      <input
-        placeholder="Password"
-        onChange={(e) => setPasswordLog(e.target.value)}
-      />
-      <button onClick={signInWithEmail}>sign in with email</button>
-
-      <button className="sign-in" onClick={signInWithGoogle}>
-        Sign In with google
-      </button>
-      <h3>Don't have a user yet?</h3>
-      <Link to={'/register'}>Register</Link>
+    <div className="login">
+      <div className="inner-login">
+        <h1 className="headline-login">LogIn</h1>
+        <form>
+          <input
+            id="username"
+            placeholder="Email"
+            onChange={(e) => setEmailLog(e.target.value)}
+          />
+          <br />
+          <input
+            id="password"
+            placeholder="Password"
+            onChange={(e) => setPasswordLog(e.target.value)}
+          />{' '}
+          <br />
+          <button onClick={signInWithEmail}>sign in with email</button>
+        </form>
+        <button className="sign-in" onClick={signInWithGoogle}>
+          Sign In with google
+        </button>
+        <h3>Don't have a user yet?</h3>
+        <Link to={'/register'}>Register</Link>
+      </div>
     </div>
   );
 }

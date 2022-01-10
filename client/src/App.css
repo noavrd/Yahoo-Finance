@@ -1,38 +1,42 @@
-.App {
+body {
+  background-color: antiquewhite;
+}
+* {
+  font-family: 'Hind Siliguri', sans-serif;
+}
+
+.inner-login {
+  height: 520px;
+  width: 400px;
+  /* background-color: rgba(255, 255, 255, 0.13); */
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  /* backdrop-filter: blur(10px); */
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
+  background-color: white;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.headline-login {
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#username,
+#password {
+  border: none;
+  text-align: center;
+  font-size: 3vh;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#password {
+  margin-top: 2vh;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#username:focus,
+#password:focus {
+  outline: none;
 }
