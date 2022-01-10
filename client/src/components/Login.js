@@ -3,13 +3,9 @@ import {
   signInWithPopup,
   getAuth,
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
 } from 'firebase/auth';
 import { useState } from 'react';
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   const [emailLog, setEmailLog] = useState('');
   const [passwordLog, setPasswordLog] = useState('');
 
@@ -24,14 +20,6 @@ export default function Login() {
       .catch((error) => {});
   };
 
-  const createUser = () => {
-    const auth = getAuth(firebaseAuth);
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-      })
-      .catch((error) => {});
-  };
   const signInWithGoogle = () => {
     const auth = getAuth(firebaseAuth);
     signInWithPopup(auth, googleProvider);
@@ -39,14 +27,6 @@ export default function Login() {
 
   return (
     <div>
-      <h1>Register</h1>
-      <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-      <input
-        placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={createUser}>Register</button>
-      {console.log(email)}
       <h1>LogIn</h1>
       <input
         placeholder="Email"
@@ -61,6 +41,8 @@ export default function Login() {
       <button className="sign-in" onClick={signInWithGoogle}>
         Sign In with google
       </button>
+      <h3>Don't have a user yet?</h3>
+      <button>Register</button>
     </div>
   );
 }
