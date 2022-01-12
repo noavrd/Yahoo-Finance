@@ -104,121 +104,110 @@ function popup(props, setClicked) {
       <button onClick={() => setClicked(null)} className="close-popup-btn">
         X
       </button>
-      <div className="popup-content">
-        <span>Exchange </span>
-        <span>{props.exchange}</span>
-      </div>
-      <div className="popup-content">
-        <span>exchangeDataDelayedBy </span>
-        <span>{props.exchangeDataDelayedBy}</span>
-      </div>
-      <div className="popup-content">
-        <span>exchangeTimezoneName </span>
-        <span>{props.exchangeTimezoneName}</span>
-      </div>
-      <div className="popup-content">
-        <span>exchangeTimezoneShortName </span>
-        <span>{props.exchangeTimezoneShortName}</span>
-      </div>
-      <div className="popup-content">
-        <span>firstTradeDateMilliseconds </span>
-        <span>{props.firstTradeDateMilliseconds}</span>
-      </div>
-      <div className="popup-content">
-        <span>fullExchangeName </span>
-        <span>{props.fullExchangeName}</span>
-      </div>
-      <div className="popup-content">
-        <span>gmtOffSetMilliseconds </span>
-        <span>{props.gmtOffSetMilliseconds}</span>
-      </div>
-      <div className="popup-content">
-        <span>language </span>
-        <span>{props.language}</span>
-      </div>
-      <div className="popup-content">
-        <span>market </span>
-        <span>{props.market}</span>
-      </div>
-      <div className="popup-content">
-        <span>marketState </span>
-        <span>{props.marketState}</span>
-      </div>
-      <div className="popup-content">
-        <span>priceHint </span>
-        <span>{props.priceHint}</span>
-      </div>
-      <div className="popup-content">
-        <span>quoteSourceName </span>
-        <span>{props.quoteSourceName}</span>
-      </div>
-      <div className="popup-content">
-        <span>quoteType </span>
-        <span>{props.quoteType}</span>
-      </div>
-      <div className="popup-content">
-        <span>region </span>
-        <span>{props.region}</span>
-      </div>
-      <div className="popup-content">
-        <span>regularMarketChangeFMT </span>
-        <span>{props.regularMarketChangeFMT}</span>
-      </div>
-      <div className="popup-content">
-        <span>regularMarketChangeRAW </span>
-        <span>{props.regularMarketChangeRAW}</span>
-      </div>
-      <div className="popup-content">
-        <span>regularMarketChangePercentFMT </span>
-        <span>{props.regularMarketChangePercentFMT}</span>
-      </div>
-      <div className="popup-content">
-        <span>regularMarketChangePercentRAW </span>
-        <span>{props.regularMarketChangePercentRAW}</span>
-      </div>
-      <div className="popup-content">
-        <span>regularMarketPreviousCloseFMT </span>
-        <span>{props.regularMarketPreviousCloseFMT}</span>
-      </div>
-      <div className="popup-content">
-        <span>regularMarketPreviousCloseRAW </span>
-        <span>{props.regularMarketPreviousCloseRAW}</span>
-      </div>
-      <div className="popup-content">
-        <span>regularMarketPriceFMT </span>
-        <span>{props.regularMarketPriceFMT}</span>
-      </div>
-      <div className="popup-content">
-        <span>regularMarketPriceRAW </span>
-        <span>{props.regularMarketPriceRAW}</span>
-      </div>
-      <div className="popup-content">
-        <span>regularMarketTimeFMT </span>
-        <span>{props.regularMarketTimeFMT}</span>
-      </div>
-      <div className="popup-content">
-        <span>regularMarketTimeRAW </span>
-        <span>{props.regularMarketTimeRAW}</span>
-      </div>
-      <div className="popup-content">
-        <span>shortName </span>
-        <span>{props.shortName}</span>
-      </div>
-      <div className="popup-content">
-        <span>sourceInterval </span>
-        <span>{props.sourceInterval}</span>
-      </div>
-      <div className="popup-content">
-        <span>symbol </span>
-        <span>{props.symbol}</span>
-      </div>
-      <div className="popup-content">
-        <span>tradeable </span>
-        <span>{props.tradeable}</span>
-      </div>
-      <div className="popup-content">
-        <span>triggerable </span>
-        <span>{props.triggerable}</span>
+      <h1 className="popup-headline">{props.shortName}</h1>
+      <div className="details">
+        <div className="popup-content">
+          <span>Exchange </span>
+          <span>{props.exchange}</span>
+        </div>
+        <div className="popup-content">
+          <span>exchangeDataDelayedBy </span>
+          <span>{props.exchangeDataDelayedBy}</span>
+        </div>
+        <div className="popup-content">
+          <span>exchangeTimezoneName </span>
+          <span>{props.exchangeTimezoneName}</span>
+        </div>
+        <div className="popup-content">
+          <span>exchangeTimezoneShortName </span>
+          <span>{props.exchangeTimezoneShortName}</span>
+        </div>
+        <div className="popup-content">
+          <span>firstTradeDateMilliseconds </span>
+          <span>{props.firstTradeDateMilliseconds}</span>
+        </div>
+        <div className="popup-content">
+          <span>fullExchangeName </span>
+          <span>{props.fullExchangeName}</span>
+        </div>
+        <div className="popup-content">
+          <span>gmtOffSetMilliseconds </span>
+          <span>{props.gmtOffSetMilliseconds}</span>
+        </div>
+        <div className="popup-content">
+          <span>language </span>
+          <span>{props.language}</span>
+        </div>
+        <div className="popup-content">
+          <span>market </span>
+          <span>{props.market}</span>
+        </div>
+        <div className="popup-content">
+          <span>marketState </span>
+          <span>{props.marketState}</span>
+        </div>
+        <div className="popup-content">
+          <span>priceHint </span>
+          <span>{props.priceHint}</span>
+        </div>
+        <div className="popup-content">
+          <span>quoteSourceName </span>
+          <span>{props.quoteSourceName}</span>
+        </div>
+        <div className="popup-content">
+          <span>quoteType </span>
+          <span>{props.quoteType}</span>
+        </div>
+        <div className="popup-content">
+          <span>region </span>
+          <span>{props.region}</span>
+        </div>
+        <div className="popup-content">
+          <span>Regular Market Change </span>
+          <span>{props.regularMarketChange.fmt} / </span>
+          <span>{props.regularMarketChange.raw}</span>
+        </div>
+
+        <div className="popup-content">
+          <span>Regular Market Change Percent </span>
+          <span>{props.regularMarketChangePercent.fmt} / </span>
+          <span>{props.regularMarketChangePercent.raw}</span>
+        </div>
+
+        <div className="popup-content">
+          <span>Regular Market Previous Close </span>
+          <span>{props.regularMarketPreviousClose.fmt} / </span>
+          <span>{props.regularMarketPreviousClose.raw}</span>
+        </div>
+
+        <div className="popup-content">
+          <span>Regular Market Price </span>
+          <span>{props.regularMarketPrice.fmt} / </span>
+          <span>{props.regularMarketPrice.raw}</span>
+        </div>
+
+        <div className="popup-content">
+          <span>Regular Market Time </span>
+          <span>{props.regularMarketTime.fmt} / </span>
+          <span>{props.regularMarketTime.raw}</span>
+        </div>
+
+        <div className="popup-content">
+          <span>sourceInterval </span>
+          <span>{props.sourceInterval}</span>
+        </div>
+        <div className="popup-content">
+          <span>symbol </span>
+          <span>{props.symbol}</span>
+        </div>
+        <div className="popup-content">
+          <span>tradeable </span>
+          <span>{props.tradeable}</span>
+        </div>
+        <div className="popup-content">
+          <span>triggerable </span>
+          <span>{props.triggerable}</span>
+        </div>
       </div>
     </div>
   );
