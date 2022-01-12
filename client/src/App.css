@@ -1,56 +1,146 @@
 body {
   /* background-color: antiquewhite; */
-  /* background-image: url('./1189585.jpg');
-  background-repeat: no-repeat;
-  background-size: cover; */
-  background-color: black;
+  background-image: url('./city-2403422_960_720.png');
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  /* background-color: black; */
+  /* background: linear-gradient(#0f0c29, #302b63, #24243e); */
+  /* background-color: #35413e; */
 
-  color: white;
+  /* color: white; */
 }
 * {
   font-family: 'Hind Siliguri', sans-serif;
 }
 
-.inner-login {
-  height: 520px;
+.input-register {
+  /* margin-left: 3vw; */
+  font-size: 2.5vh;
+  margin-top: 2vh;
+  text-align: left;
+  width: 20vw;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  color: gray;
+}
+.input-register:focus {
+  outline: none;
+}
+.login,
+.register {
+  height: 450px;
   width: 400px;
-  /* background-color: rgba(255, 255, 255, 0.13); */
+  /* position: relative; */
+}
+.outside {
+  height: 450px;
+  width: 400px;
   position: absolute;
   transform: translate(-50%, -50%);
-  top: 50%;
+  top: 47%;
   left: 50%;
   border-radius: 10px;
   /* backdrop-filter: blur(10px); */
   border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(206, 203, 231, 0.418);
+  padding: 50px 35px;
+  opacity: 0.4;
+  background-color: rgba(41, 233, 137, 0.685);
+
+  /* background: rgba(255, 255, 255, 0.212); */
+  /* background-color: rgba(255, 255, 255, 0.13); */
+}
+.inner-login,
+.inner-register {
+  height: 450px;
+  width: 400px;
+  /* background-color: rgba(255, 255, 255, 0.13); */
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 47%;
+  left: 50%;
+  border-radius: 10px;
+  /* backdrop-filter: blur(10px); */
+  border: 2px solid rgba(109, 160, 255, 0.1);
   box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
   padding: 50px 35px;
-  background-color: white;
+  /* background-color: white; */
   text-align: center;
 }
 
-.headline-login {
+.input-login {
+  /* text-align: left; */
+  background-color: transparent;
+  border: none;
+  color: gray;
 }
-
+.or {
+  margin: 2vh 0;
+  font-size: 3vh;
+}
+.sign-in {
+  background-color: transparent;
+  border: none;
+  background-repeat: no-repeat;
+}
+.register-click {
+  margin-top: 2vh;
+}
+.sign-email,
+.register-click {
+  width: 20vw;
+  background-color: #ffffff;
+  color: #080710;
+  padding: 10px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.google {
+  cursor: pointer;
+  height: 5.5vh;
+  width: 3vw;
+}
 #username,
 #password {
   border: none;
-  text-align: center;
+  /* text-align: center; */
   font-size: 3vh;
+  width: 20vw;
+  color: black;
+  /* color: aliceblue; */
+  border-bottom: 1px solid black;
 }
 
 #password {
-  margin-top: 2vh;
+  margin: 2vh 0;
 }
-
+.error-login {
+  margin-top: 1vh;
+  font-size: 2.2vh;
+  height: 2.5vh;
+}
 #username:focus,
 #password:focus {
   outline: none;
+}
+.register-btn,
+a {
+  text-decoration: none;
+  color: black;
+  /* color: white; */
 }
 
 .popup-content,
 .popup-headline {
   padding: 10px;
   margin-left: 2vw;
+}
+.dont-have {
+  margin-top: 1vh;
+  font-weight: bolder;
 }
 
 .popup-headline {
@@ -127,7 +217,7 @@ body {
   /* display: block; */
   margin-top: 1vh;
   margin-left: 1vw;
-  color: white;
+  /* color: white; */
 }
 
 .user-name {
@@ -137,7 +227,7 @@ body {
   font-size: 3vh;
   background-color: transparent;
   display: block;
-  color: white;
+  /* color: white; */
 }
 
 .sign-out {
@@ -147,11 +237,11 @@ body {
   font-size: 2.5vh;
   margin-left: -8vw;
   position: absolute;
-  color: white;
+  /* color: white; */
 }
 .show-more {
   cursor: pointer;
   background-color: transparent;
   border: none;
-  color: white;
+  /* color: white; */
 }

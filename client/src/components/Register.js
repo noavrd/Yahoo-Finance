@@ -56,37 +56,49 @@ export default function Register({ user }) {
   }, [change]);
   console.log(error);
   return (
-    <div>
-      {console.log(user)}
-      {/* {user && navigate('/')} */}
-      <h1>Register</h1>
-      {/* <form onSubmit={() => (!error ? navigate('/') : '')}> */}
-      <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-      <input
-        type="password"
-        placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <input
-        placeholder="First Name"
-        onChange={(e) => setFirstName(e.target.value)}
-      />
-      <input
-        placeholder="Last Name"
-        onChange={(e) => setLastName(e.target.value)}
-      />
-      <button
-        onClick={() => {
-          createUser();
-          if (error === null) {
-            console.log(error);
-          }
-        }}>
-        Register
-      </button>
-      {console.log(email)}
-      {error !== null && <div>{error}</div>}
-      {/* </form> */}
+    <div className="register">
+      <div className="outside"> </div>
+
+      <div className="inner-register">
+        <h1>Register</h1>
+        <input
+          className="input-register"
+          placeholder="Email"
+          onChange={(e) => setEmail(e.target.value)}
+        />{' '}
+        <br />
+        <input
+          className="input-register"
+          type="password"
+          placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)}
+        />{' '}
+        <br />
+        <input
+          className="input-register"
+          placeholder="First Name"
+          onChange={(e) => setFirstName(e.target.value)}
+        />{' '}
+        <br />
+        <input
+          className="input-register"
+          placeholder="Last Name"
+          onChange={(e) => setLastName(e.target.value)}
+        />{' '}
+        <br />
+        <button
+          className="register-click"
+          onClick={() => {
+            createUser();
+            if (error === null) {
+              console.log(error);
+            }
+          }}>
+          Register
+        </button>
+        {console.log(email)}
+        {error !== null && <div>{error}</div>}
+      </div>
     </div>
   );
 }
