@@ -11,7 +11,7 @@ export default function Logout() {
       });
   };
   return (
-    <div>
+    <div className="sign-out-div">
       <button onClick={signout} className="sign-out">
         Logout
       </button>

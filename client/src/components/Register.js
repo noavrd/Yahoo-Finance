@@ -58,7 +58,6 @@ export default function Register({ user }) {
   return (
     <div className="register">
       <div className="outside"> </div>
-
       <div className="inner-register">
         <h1>Register</h1>
         <input
@@ -97,7 +96,11 @@ export default function Register({ user }) {
           Register
         </button>
         {console.log(email)}
-        {error !== null && <div>{error}</div>}
+        <div className="error-register">{error !== null ? error : ' '}</div>
+        <br />
+        <Link to={'/'}>
+          <i className="fa fa-home fa-3x home" aria-hidden="true"></i>
+        </Link>
       </div>
     </div>
   );
