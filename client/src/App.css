@@ -17,6 +17,11 @@ body {
 .input-register:focus {
   outline: none;
 }
+.headline-login,
+.register-headline {
+  font-family: 'Merriweather Sans', sans-serif;
+  margin-bottom: 3vh;
+}
 .login,
 .register {
   height: 450px;

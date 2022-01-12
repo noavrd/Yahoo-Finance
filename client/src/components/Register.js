@@ -59,7 +59,7 @@ export default function Register({ user }) {
     <div className="register">
       <div className="outside"> </div>
       <div className="inner-register">
-        <h1>Register</h1>
+        <h1 className="register-headline">Register</h1>
         <input
           className="input-register"
           placeholder="Email"
