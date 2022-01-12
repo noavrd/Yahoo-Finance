@@ -32,21 +32,21 @@ export default function Login() {
     <div className="login">
       <div className="inner-login">
         <h1 className="headline-login">LogIn</h1>
-        <form>
-          <input
-            id="username"
-            placeholder="Email"
-            onChange={(e) => setEmailLog(e.target.value)}
-          />
-          <br />
-          <input
-            id="password"
-            placeholder="Password"
-            onChange={(e) => setPasswordLog(e.target.value)}
-          />{' '}
-          <br />
-          <button onClick={signInWithEmail}>sign in with email</button>
-        </form>
+        {/* <form> */}
+        <input
+          id="username"
+          placeholder="Email"
+          onChange={(e) => setEmailLog(e.target.value)}
+        />
+        <br />
+        <input
+          id="password"
+          placeholder="Password"
+          onChange={(e) => setPasswordLog(e.target.value)}
+        />{' '}
+        <br />
+        <button onClick={signInWithEmail}>sign in with email</button>
+        {/* </form> */}
         <button className="sign-in" onClick={signInWithGoogle}>
           Sign In with google
         </button>

@@ -104,32 +104,37 @@ function popup(props, setClicked) {
       <button onClick={() => setClicked(null)} className="close-popup-btn">
         X
       </button>
-      <h1 className="popup-headline">{props.shortName}</h1>
+      <div>
+        <span className="popup-headline">{props.shortName}</span>
+        <span className="popup-second-headline">({props.symbol})</span>
+      </div>
       <div className="details">
         <div className="popup-content">
-          <span>Exchange </span>
-          <span>{props.exchange}</span>
+          {/* <span>Exchange </span> */}
+          <span>{props.fullExchangeName} - </span>
+          <span>Region </span>
+          <span>{props.region} </span>
+          <span> - Time zone: </span>
+          <span>{props.exchangeTimezoneName} - </span>
+          <span> {props.exchangeTimezoneShortName}</span>
+          {/* <span>{props.exchange}</span> */}
+        </div>
+
+        <div className="popup-content">
+          <span>Market Price </span>
+          <span>{props.regularMarketPrice.fmt} </span>
+          <span>({props.regularMarketPrice.raw})</span>
         </div>
         <div className="popup-content">
-          <span>exchangeDataDelayedBy </span>
+          <span>ExchangeDataDelayedBy </span>
           <span>{props.exchangeDataDelayedBy}</span>
         </div>
-        <div className="popup-content">
-          <span>exchangeTimezoneName </span>
-          <span>{props.exchangeTimezoneName}</span>
-        </div>
-        <div className="popup-content">
-          <span>exchangeTimezoneShortName </span>
-          <span>{props.exchangeTimezoneShortName}</span>
-        </div>
+
         <div className="popup-content">
           <span>firstTradeDateMilliseconds </span>
           <span>{props.firstTradeDateMilliseconds}</span>
         </div>
-        <div className="popup-content">
-          <span>fullExchangeName </span>
-          <span>{props.fullExchangeName}</span>
-        </div>
+
         <div className="popup-content">
           <span>gmtOffSetMilliseconds </span>
           <span>{props.gmtOffSetMilliseconds}</span>
@@ -158,36 +163,27 @@ function popup(props, setClicked) {
           <span>quoteType </span>
           <span>{props.quoteType}</span>
         </div>
+
         <div className="popup-content">
-          <span>region </span>
-          <span>{props.region}</span>
-        </div>
-        <div className="popup-content">
-          <span>Regular Market Change </span>
+          <span>Market Change </span>
           <span>{props.regularMarketChange.fmt} / </span>
           <span>{props.regularMarketChange.raw}</span>
         </div>
 
         <div className="popup-content">
-          <span>Regular Market Change Percent </span>
+          <span>Market Change Percent </span>
           <span>{props.regularMarketChangePercent.fmt} / </span>
           <span>{props.regularMarketChangePercent.raw}</span>
         </div>
 
         <div className="popup-content">
-          <span>Regular Market Previous Close </span>
+          <span>Market Previous Close </span>
           <span>{props.regularMarketPreviousClose.fmt} / </span>
           <span>{props.regularMarketPreviousClose.raw}</span>
         </div>
 
         <div className="popup-content">
-          <span>Regular Market Price </span>
-          <span>{props.regularMarketPrice.fmt} / </span>
-          <span>{props.regularMarketPrice.raw}</span>
-        </div>
-
-        <div className="popup-content">
-          <span>Regular Market Time </span>
+          <span>Market Time </span>
           <span>{props.regularMarketTime.fmt} / </span>
           <span>{props.regularMarketTime.raw}</span>
         </div>
@@ -196,10 +192,7 @@ function popup(props, setClicked) {
           <span>sourceInterval </span>
           <span>{props.sourceInterval}</span>
         </div>
-        <div className="popup-content">
-          <span>symbol </span>
-          <span>{props.symbol}</span>
-        </div>
+
         <div className="popup-content">
           <span>tradeable </span>
           <span>{props.tradeable}</span>

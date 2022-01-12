@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { firebaseAuth } from '../auth';
 import {
   getAuth,
@@ -13,43 +13,80 @@ export default function Register({ user }) {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [create, setCreate] = useState(false);
+  const [error, setError] = useState(null);
+  const [change, setChange] = useState(false);
   const navigate = useNavigate();
 
   const createUser = async () => {
-    const displayName = firstName + ' ' + lastName;
-    const auth = getAuth(firebaseAuth);
-    await createUserWithEmailAndPassword(auth, email, password, displayName)
-      .then((userCredential) => {
-        setCreate(true);
-      })
-      .catch((error) => {});
+    if (
+      (email !== '') &
+      (password !== '') &
+      (firstName !== '') &
+      (lastName !== '')
+    ) {
+      setError(null);
+      const displayName = firstName + ' ' + lastName;
+      const auth = getAuth(firebaseAuth);
+      await createUserWithEmailAndPassword(auth, email, password, displayName)
+        .then((userCredential) => {
+          setCreate(true);
+          setChange(true);
+          setError(null);
+        })
+        .catch((error) => {
+          console.log(error);
+          setError('Email already exist');
+        });
 
-    await updateProfile(auth.currentUser, { displayName: displayName });
+      await updateProfile(auth.currentUser, { displayName: displayName });
+    } else {
+      setError('Please fill all the fields');
+    }
   };
-
+  useEffect(() => {
+    console.log(user !== null);
+    if (user !== null) {
+      navigate('/');
+    }
+  }, []);
+  useEffect(() => {
+    if (change) {
+      navigate('/');
+    }
+  }, [change]);
+  console.log(error);
   return (
     <div>
       {console.log(user)}
       {/* {user && navigate('/')} */}
       <h1>Register</h1>
-      <form onSubmit={() => navigate('/')}>
-        <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          placeholder="First Name"
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <input
-          placeholder="Last Name"
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <button onClick={createUser}>Register</button>
-        {console.log(email)}
-      </form>
+      {/* <form onSubmit={() => (!error ? navigate('/') : '')}> */}
+      <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+      <input
+        type="password"
+        placeholder="Password"
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <input
+        placeholder="First Name"
+        onChange={(e) => setFirstName(e.target.value)}
+      />
+      <input
+        placeholder="Last Name"
+        onChange={(e) => setLastName(e.target.value)}
+      />
+      <button
+        onClick={() => {
+          createUser();
+          if (error === null) {
+            console.log(error);
+          }
+        }}>
+        Register
+      </button>
+      {console.log(email)}
+      {error !== null && <div>{error}</div>}
+      {/* </form> */}
     </div>
   );
 }
