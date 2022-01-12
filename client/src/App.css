@@ -1,5 +1,11 @@
 body {
   /* background-color: antiquewhite; */
+  /* background-image: url('./1189585.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-color: black;
+
+  color: white;
 }
 * {
   font-family: 'Hind Siliguri', sans-serif;
@@ -49,6 +55,7 @@ body {
   width: 60vw;
   left: 50%;
   top: 5vh;
+  bottom: 5vh;
   transform: translateX(-50%);
   background-color: white;
   box-shadow: rgba(15, 15, 15, 0.16) 1px 2px 42px 19px;
@@ -56,6 +63,7 @@ body {
   display: grid;
   grid-template-columns: 30vw 30vw;
   word-wrap: break-word;
+  color: black;
 }
 
 .close-popup-btn {
@@ -66,27 +74,38 @@ body {
   font-size: 7vh;
   cursor: pointer;
 }
-
+.main {
+  /* transform: translate(-50%, -50%); */
+  top: 50%;
+  left: 50%;
+  margin-top: 10vh;
+}
+.headline {
+  /* position: relative; */
+  justify-content: center;
+  text-align: center;
+  /* font-weight: bolder; */
+  font-size: 10vh;
+  font-family: 'Anton', sans-serif;
+}
 .all-market {
-  /* display: grid; */
-  /* grid-template-columns: 10vw 10vw 10vw 10vw; */
-  /* grid-column-gap: 10vw; */
-  /* grid-row-gap: 2vh; */
-  margin-left: 3vw;
+  margin-left: 2vw;
   margin-top: 5vh;
+  /* display: block; */
 }
 
 .single-market {
   margin-left: 8vw;
-
+  font-weight: bolder;
   padding-left: 1vw;
   transition: 0.4s;
+  /* background-color: white; */
 }
 .single-market:hover {
   border-radius: 10px;
   cursor: default;
-  /* box-shadow: 2px 6px 2px -2px rgba(8, 7, 16, 0.6); */
-  box-shadow: 0px 15px 10px -15px #111;
+  /* box-shadow: 2px 6px 2px -2px white; */
+  /* box-shadow: 0px 15px 10px -15px white; */
 }
 .plus {
   color: green;
@@ -96,21 +115,20 @@ body {
 }
 .navbar {
   /* display: inline; */
-  background-color: #54565b;
+  background-color: transparent;
+  /* display: block; */
+  margin-top: 1vh;
+  margin-left: 1vw;
   color: white;
 }
-.nav-headline {
-  font-size: 5vh;
-  margin-left: 2vh;
-}
+
 .user-name {
   cursor: pointer;
   background-color: transparent;
   border: none;
   font-size: 4vh;
-  float: right;
-  /* margin-right: 1vw; */
-  background-color: #54565b;
+  background-color: transparent;
+  display: block;
   color: white;
 }
 
@@ -120,11 +138,12 @@ body {
   border: none;
   font-size: 3vh;
   margin-right: 6vw;
-  position: relative;
+  position: absolute;
   color: white;
 }
 .show-more {
   cursor: pointer;
   background-color: transparent;
   border: none;
+  color: white;
 }

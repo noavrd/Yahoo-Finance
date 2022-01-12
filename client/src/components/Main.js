@@ -2,11 +2,11 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Logout from './Logout';
 import SingleMarket from './SingleMarket';
 
 export default function Main() {
   const [data, setData] = useState();
+  const [clicked, setClicked] = useState(null);
   useEffect(() => {
     axios
       .get('https://yfapi.net/v6/finance/quote/marketSummary', {
@@ -22,22 +22,20 @@ export default function Main() {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 4,
-      // slidesToSlide: 1, // optional, default to 1.
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
       items: 2,
-      // slidesToSlide: 1, // optional, default to 1.
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
-      // slidesToSlide: 1, // optional, default to 1.
     },
   };
   console.log(data);
   return (
-    <div>
+    <div className="main">
+      <h1 className="headline">Stock Market</h1>
       <div className="all-market">
         {console.log(data)}
         {data && (
@@ -48,6 +46,8 @@ export default function Main() {
             {data &&
               data.map((single, i) => (
                 <SingleMarket
+                  index={i}
+                  setClicked={setClicked}
                   key={i}
                   exchange={single.exchange}
                   exchangeDataDelayedBy={single.exchangeDataDelayedBy}
@@ -90,6 +90,135 @@ export default function Main() {
               ))}
           </Carousel>
         )}
+      </div>
+      {console.log(clicked)}
+      {clicked !== null && popup(data[clicked], setClicked)}
+    </div>
+  );
+}
+
+function popup(props, setClicked) {
+  return (
+    <div className="popup-container">
+      {console.log(props)}
+      <button onClick={() => setClicked(null)} className="close-popup-btn">
+        X
+      </button>
+      <div className="popup-content">
+        <span>Exchange </span>
+        <span>{props.exchange}</span>
+      </div>
+      <div className="popup-content">
+        <span>exchangeDataDelayedBy </span>
+        <span>{props.exchangeDataDelayedBy}</span>
+      </div>
+      <div className="popup-content">
+        <span>exchangeTimezoneName </span>
+        <span>{props.exchangeTimezoneName}</span>
+      </div>
+      <div className="popup-content">
+        <span>exchangeTimezoneShortName </span>
+        <span>{props.exchangeTimezoneShortName}</span>
+      </div>
+      <div className="popup-content">
+        <span>firstTradeDateMilliseconds </span>
+        <span>{props.firstTradeDateMilliseconds}</span>
+      </div>
+      <div className="popup-content">
+        <span>fullExchangeName </span>
+        <span>{props.fullExchangeName}</span>
+      </div>
+      <div className="popup-content">
+        <span>gmtOffSetMilliseconds </span>
+        <span>{props.gmtOffSetMilliseconds}</span>
+      </div>
+      <div className="popup-content">
+        <span>language </span>
+        <span>{props.language}</span>
+      </div>
+      <div className="popup-content">
+        <span>market </span>
+        <span>{props.market}</span>
+      </div>
+      <div className="popup-content">
+        <span>marketState </span>
+        <span>{props.marketState}</span>
+      </div>
+      <div className="popup-content">
+        <span>priceHint </span>
+        <span>{props.priceHint}</span>
+      </div>
+      <div className="popup-content">
+        <span>quoteSourceName </span>
+        <span>{props.quoteSourceName}</span>
+      </div>
+      <div className="popup-content">
+        <span>quoteType </span>
+        <span>{props.quoteType}</span>
+      </div>
+      <div className="popup-content">
+        <span>region </span>
+        <span>{props.region}</span>
+      </div>
+      <div className="popup-content">
+        <span>regularMarketChangeFMT </span>
+        <span>{props.regularMarketChangeFMT}</span>
+      </div>
+      <div className="popup-content">
+        <span>regularMarketChangeRAW </span>
+        <span>{props.regularMarketChangeRAW}</span>
+      </div>
+      <div className="popup-content">
+        <span>regularMarketChangePercentFMT </span>
+        <span>{props.regularMarketChangePercentFMT}</span>
+      </div>
+      <div className="popup-content">
+        <span>regularMarketChangePercentRAW </span>
+        <span>{props.regularMarketChangePercentRAW}</span>
+      </div>
+      <div className="popup-content">
+        <span>regularMarketPreviousCloseFMT </span>
+        <span>{props.regularMarketPreviousCloseFMT}</span>
+      </div>
+      <div className="popup-content">
+        <span>regularMarketPreviousCloseRAW </span>
+        <span>{props.regularMarketPreviousCloseRAW}</span>
+      </div>
+      <div className="popup-content">
+        <span>regularMarketPriceFMT </span>
+        <span>{props.regularMarketPriceFMT}</span>
+      </div>
+      <div className="popup-content">
+        <span>regularMarketPriceRAW </span>
+        <span>{props.regularMarketPriceRAW}</span>
+      </div>
+      <div className="popup-content">
+        <span>regularMarketTimeFMT </span>
+        <span>{props.regularMarketTimeFMT}</span>
+      </div>
+      <div className="popup-content">
+        <span>regularMarketTimeRAW </span>
+        <span>{props.regularMarketTimeRAW}</span>
+      </div>
+      <div className="popup-content">
+        <span>shortName </span>
+        <span>{props.shortName}</span>
+      </div>
+      <div className="popup-content">
+        <span>sourceInterval </span>
+        <span>{props.sourceInterval}</span>
+      </div>
+      <div className="popup-content">
+        <span>symbol </span>
+        <span>{props.symbol}</span>
+      </div>
+      <div className="popup-content">
+        <span>tradeable </span>
+        <span>{props.tradeable}</span>
+      </div>
+      <div className="popup-content">
+        <span>triggerable </span>
+        <span>{props.triggerable}</span>
       </div>
     </div>
   );

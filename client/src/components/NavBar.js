@@ -6,7 +6,7 @@ export default function NavBar({ user }) {
   console.log(user);
   return (
     <div className="navbar">
-      <span className="nav-headline">Finance</span>
+      {/* <span className="nav-headline">Finance</span> */}
       <button onClick={() => setClicked(!clicked)} className="user-name">
         {user.displayName}{' '}
         {clicked ? (
