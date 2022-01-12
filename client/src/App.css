@@ -68,14 +68,17 @@ body {
 }
 
 .all-market {
-  display: grid;
-  grid-template-columns: 10vw 10vw 10vw 10vw;
-  grid-column-gap: 10vw;
-  grid-row-gap: 2vh;
-  margin-left: 5vw;
+  /* display: grid; */
+  /* grid-template-columns: 10vw 10vw 10vw 10vw; */
+  /* grid-column-gap: 10vw; */
+  /* grid-row-gap: 2vh; */
+  margin-left: 3vw;
   margin-top: 5vh;
 }
+
 .single-market {
+  margin-left: 8vw;
+
   padding-left: 1vw;
   transition: 0.4s;
 }
