@@ -1,28 +1,55 @@
 import { useState } from 'react';
 import { firebaseAuth } from '../auth';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-export default function Register(params) {
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth';
+import { Link, useNavigate } from 'react-router-dom';
+
+export default function Register({ user }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const createUser = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [create, setCreate] = useState(false);
+  const navigate = useNavigate();
+
+  const createUser = async () => {
+    const displayName = firstName + ' ' + lastName;
     const auth = getAuth(firebaseAuth);
-    createUserWithEmailAndPassword(auth, email, password)
+    await createUserWithEmailAndPassword(auth, email, password, displayName)
       .then((userCredential) => {
-        const user = userCredential.user;
+        setCreate(true);
       })
       .catch((error) => {});
+
+    await updateProfile(auth.currentUser, { displayName: displayName });
   };
 
   return (
     <div>
+      {console.log(user)}
+      {/* {user && navigate('/')} */}
       <h1>Register</h1>
-      <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-      <input
-        placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={createUser}>Register</button>
-      {console.log(email)}
+      <form onSubmit={() => navigate('/')}>
+        <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+        <input
+          type="password"
+          placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          placeholder="First Name"
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <input
+          placeholder="Last Name"
+          onChange={(e) => setLastName(e.target.value)}
+        />
+        <button onClick={createUser}>Register</button>
+        {console.log(email)}
+      </form>
     </div>
   );
 }

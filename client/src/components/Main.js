@@ -21,7 +21,6 @@ export default function Main() {
   console.log(data);
   return (
     <div>
-      <Logout />
       <div className="all-market">
         {console.log(data)}
         {data &&

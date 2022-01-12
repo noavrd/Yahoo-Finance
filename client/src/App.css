@@ -52,6 +52,10 @@ body {
   transform: translateX(-50%);
   background-color: white;
   box-shadow: rgba(15, 15, 15, 0.16) 1px 2px 42px 19px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 30vw 30vw;
+  word-wrap: break-word;
 }
 
 .close-popup-btn {
@@ -61,4 +65,63 @@ body {
   background-color: transparent;
   font-size: 7vh;
   cursor: pointer;
+}
+
+.all-market {
+  display: grid;
+  grid-template-columns: 10vw 10vw 10vw 10vw;
+  grid-column-gap: 10vw;
+  grid-row-gap: 2vh;
+  margin-left: 5vw;
+  margin-top: 5vh;
+}
+.single-market {
+  padding-left: 1vw;
+  transition: 0.4s;
+}
+.single-market:hover {
+  border-radius: 10px;
+  cursor: default;
+  /* box-shadow: 2px 6px 2px -2px rgba(8, 7, 16, 0.6); */
+  box-shadow: 0px 15px 10px -15px #111;
+}
+.plus {
+  color: green;
+}
+.minus {
+  color: red;
+}
+.navbar {
+  /* display: inline; */
+  background-color: #54565b;
+  color: white;
+}
+.nav-headline {
+  font-size: 5vh;
+  margin-left: 2vh;
+}
+.user-name {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 4vh;
+  float: right;
+  /* margin-right: 1vw; */
+  background-color: #54565b;
+  color: white;
+}
+
+.sign-out {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: 3vh;
+  margin-right: 6vw;
+  position: relative;
+  color: white;
+}
+.show-more {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
 }

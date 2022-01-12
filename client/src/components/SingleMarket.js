@@ -1,33 +1,39 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function SingleMarket(props) {
   const [showMore, setShowMore] = useState(false);
+  const [plus, setPlus] = useState(true);
   const handle = () => {
     setShowMore(true);
   };
+
+  useEffect(() => {
+    if (props.regularMarketChangeFMT[0] === '-') {
+      setPlus(false);
+    }
+  }, []);
+
   return (
-    <div>
+    <div className="single-market">
+      <div className="market-details">{props.shortName}</div>
       <div className="market-details">
         <span>Exchange </span>
         <span>{props.exchange}</span>
       </div>
-      <div className="market-details">
-        <span>Short Name </span>
-        <span>{props.shortName}</span>
+      <div className="market-details">{props.regularMarketPriceFMT}</div>
+      <div className={plus ? 'plus market-details' : 'minus market-details'}>
+        <span>
+          {plus && '+'}
+          {props.regularMarketChangeFMT}{' '}
+        </span>
+        <span>
+          ({plus && '+'}
+          {props.regularMarketChangePercentFMT})
+        </span>
       </div>
-      <div className="market-details">
-        <span>Regular Market Price </span>
-        <span>{props.regularMarketPriceFMT}</span>
-      </div>
-      <div className="market-details">
-        <span>regular Market Change </span>
-        <span>{props.regularMarketChangeFMT}</span>
-      </div>
-      <div className="market-details">
-        <span>Regular Market Change Percent </span>
-        <span>({props.regularMarketChangePercentFMT})</span>
-      </div>
-      <button onClick={() => handle()}>Show all details</button>
+      <button className="show-more" onClick={() => handle()}>
+        Show More
+      </button>
       {showMore && popup(props, setShowMore)}
       <br />
     </div>

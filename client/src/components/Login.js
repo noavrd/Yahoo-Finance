@@ -18,7 +18,9 @@ export default function Login() {
         const user = userCredential.user;
         // ...
       })
-      .catch((error) => {});
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const signInWithGoogle = () => {
