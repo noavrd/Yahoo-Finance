@@ -12,7 +12,6 @@ export default function Register({ user }) {
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [create, setCreate] = useState(false);
   const [error, setError] = useState(null);
   const [change, setChange] = useState(false);
   const navigate = useNavigate();
@@ -25,12 +24,12 @@ export default function Register({ user }) {
       (lastName !== '')
     ) {
       setError(null);
+      setFirstName(firstName.charAt(0).toUpperCase() + firstName.slice(1));
+      setLastName(lastName.charAt(0).toUpperCase() + lastName.slice(1));
       const displayName = firstName + ' ' + lastName;
       const auth = getAuth(firebaseAuth);
       await createUserWithEmailAndPassword(auth, email, password, displayName)
         .then((userCredential) => {
-          setCreate(true);
-          setChange(true);
           setError(null);
         })
         .catch((error) => {
@@ -38,7 +37,15 @@ export default function Register({ user }) {
           setError('Email already exist');
         });
 
-      await updateProfile(auth.currentUser, { displayName: displayName });
+      await updateProfile(auth.currentUser, { displayName: displayName })
+        .then(() => {
+          setError(null);
+          setChange(true);
+        })
+        .catch((error) => {
+          console.log(error);
+          setError('Email already exist');
+        });
     } else {
       setError('Please fill all the fields');
     }
@@ -50,7 +57,7 @@ export default function Register({ user }) {
     }
   }, []);
   useEffect(() => {
-    if (change) {
+    if (change === true) {
       navigate('/');
     }
   }, [change]);
