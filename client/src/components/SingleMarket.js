@@ -16,9 +16,9 @@ export default function SingleMarket(props) {
 
   return (
     <div className="single-market">
-      <div className="market-details">{props.shortName}</div>
+      <div className="market-details market-name">{props.shortName}</div>
       <div className="market-details">
-        <span>Exchange </span>
+        <span>Exchange: </span>
         <span>{props.exchange}</span>
       </div>
       <div className="market-details">{props.regularMarketPriceFMT}</div>
@@ -35,7 +35,6 @@ export default function SingleMarket(props) {
       <button className="show-more" onClick={() => handle()}>
         Show More
       </button>
-      {/* {showMore && popup(props, setShowMore)} */}
       <br />
     </div>
   );

@@ -36,7 +36,7 @@ export default function Main() {
   return (
     <div className="main">
       <h1 className="headline">Stock Market</h1>
-      <div className="all-market">
+      <div className="all-markets">
         {console.log(data)}
         {data && (
           <Carousel
@@ -50,42 +50,12 @@ export default function Main() {
                   setClicked={setClicked}
                   key={i}
                   exchange={single.exchange}
-                  exchangeDataDelayedBy={single.exchangeDataDelayedBy}
-                  exchangeTimezoneName={single.exchangeTimezoneName}
-                  exchangeTimezoneShortName={single.exchangeTimezoneShortName}
-                  firstTradeDateMilliseconds={single.firstTradeDateMilliseconds}
-                  fullExchangeName={single.fullExchangeName}
-                  gmtOffSetMilliseconds={single.gmtOffSetMilliseconds}
-                  language={single.language}
-                  market={single.market}
-                  marketState={single.marketState}
-                  priceHint={single.priceHint}
-                  quoteSourceName={single.quoteSourceName}
-                  quoteType={single.quoteType}
-                  region={single.region}
                   regularMarketChangeFMT={single.regularMarketChange.fmt}
-                  regularMarketChangeRAW={single.regularMarketChange.raw}
                   regularMarketChangePercentFMT={
                     single.regularMarketChangePercent.fmt
                   }
-                  regularMarketChangePercentRAW={
-                    single.regularMarketChangePercent.raw
-                  }
-                  regularMarketPreviousCloseFMT={
-                    single.regularMarketPreviousClose.fmt
-                  }
-                  regularMarketPreviousCloseRAW={
-                    single.regularMarketPreviousClose.raw
-                  }
                   regularMarketPriceFMT={single.regularMarketPrice.fmt}
-                  regularMarketPriceRAW={single.regularMarketPrice.raw}
-                  regularMarketTimeFMT={single.regularMarketTime.fmt}
-                  regularMarketTimeRAW={single.regularMarketTime.raw}
                   shortName={single.shortName}
-                  sourceInterval={single.sourceInterval}
-                  symbol={single.symbol}
-                  tradeable={single.tradeable}
-                  triggerable={single.triggerable}
                 />
               ))}
           </Carousel>
@@ -98,6 +68,13 @@ export default function Main() {
 }
 
 function popup(props, setClicked) {
+  const change = (elem) => {
+    console.log(elem);
+    if (elem[0] === '-') {
+      return 'minus';
+    }
+    return 'plus';
+  };
   return (
     <div className="popup-container">
       {console.log(props)}
@@ -109,7 +86,7 @@ function popup(props, setClicked) {
         <span className="popup-second-headline">({props.symbol})</span>
       </div>
       <div className="details">
-        <div className="popup-content">
+        <div className="popup-content second-headline">
           {/* <span>Exchange </span> */}
           <span>{props.fullExchangeName} - </span>
           <span>Region </span>
@@ -121,85 +98,105 @@ function popup(props, setClicked) {
         </div>
 
         <div className="popup-content">
-          <span>Market Price </span>
-          <span>{props.regularMarketPrice.fmt} </span>
-          <span>({props.regularMarketPrice.raw})</span>
-        </div>
-        <div className="popup-content">
-          <span>ExchangeDataDelayedBy </span>
-          <span>{props.exchangeDataDelayedBy}</span>
-        </div>
-
-        <div className="popup-content">
-          <span>firstTradeDateMilliseconds </span>
-          <span>{props.firstTradeDateMilliseconds}</span>
+          <div>
+            <span>Price </span>
+            <span>{props.regularMarketPrice.fmt} </span>
+            <span>({props.regularMarketPrice.raw})</span>
+          </div>
+          <div>
+            <span>Previous Close </span>
+            <span>{props.regularMarketPreviousClose.fmt} / </span>
+            <span>{props.regularMarketPreviousClose.raw}</span>
+          </div>
         </div>
 
         <div className="popup-content">
-          <span>gmtOffSetMilliseconds </span>
-          <span>{props.gmtOffSetMilliseconds}</span>
+          <div>
+            <span>Change </span>
+            <span className={change(props.regularMarketChange.fmt)}>
+              {props.regularMarketChange.fmt}{' '}
+            </span>
+            <span>/ </span>
+            <span className={change(props.regularMarketChange.fmt)}>
+              {props.regularMarketChange.raw}
+            </span>
+          </div>
+          <div>
+            <span>Change Percent </span>
+            <span className={change(props.regularMarketChangePercent.fmt)}>
+              {props.regularMarketChangePercent.fmt}{' '}
+            </span>
+            <span>/ </span>
+            <span className={change(props.regularMarketChangePercent.fmt)}>
+              {props.regularMarketChangePercent.raw}
+            </span>
+          </div>
         </div>
         <div className="popup-content">
-          <span>language </span>
-          <span>{props.language}</span>
-        </div>
-        <div className="popup-content">
-          <span>market </span>
-          <span>{props.market}</span>
-        </div>
-        <div className="popup-content">
-          <span>marketState </span>
-          <span>{props.marketState}</span>
-        </div>
-        <div className="popup-content">
-          <span>priceHint </span>
-          <span>{props.priceHint}</span>
-        </div>
-        <div className="popup-content">
-          <span>quoteSourceName </span>
-          <span>{props.quoteSourceName}</span>
-        </div>
-        <div className="popup-content">
-          <span>quoteType </span>
-          <span>{props.quoteType}</span>
-        </div>
-
-        <div className="popup-content">
-          <span>Market Change </span>
-          <span>{props.regularMarketChange.fmt} / </span>
-          <span>{props.regularMarketChange.raw}</span>
-        </div>
-
-        <div className="popup-content">
-          <span>Market Change Percent </span>
-          <span>{props.regularMarketChangePercent.fmt} / </span>
-          <span>{props.regularMarketChangePercent.raw}</span>
+          <div>
+            <span>Market: </span>
+            <span>{props.market} - </span>
+            <span>language: </span>
+            <span>{props.language}</span>
+          </div>
+          <div>
+            <span>Market Time </span>
+            <span>{props.regularMarketTime.fmt} / </span>
+            <span>{props.regularMarketTime.raw}</span>
+          </div>
         </div>
 
         <div className="popup-content">
-          <span>Market Previous Close </span>
-          <span>{props.regularMarketPreviousClose.fmt} / </span>
-          <span>{props.regularMarketPreviousClose.raw}</span>
+          <div>
+            <span>Quote Type: </span>
+            <span>{props.quoteType}</span>
+          </div>
+          <div>
+            <span>Source Interval: </span>
+            <span>{props.sourceInterval}</span>
+          </div>
+          <div>
+            <span>State: </span>
+            <span>{props.marketState}</span>
+          </div>
+          <div>
+            <span>Exchange Data Delayed By: </span>
+            <span>{props.exchangeDataDelayedBy}</span>
+          </div>
+          <div>
+            <span>First Trade Date Milliseconds: </span>
+            <span>{props.firstTradeDateMilliseconds}</span>
+          </div>
+          <div>
+            <span>GMT Off Set Milliseconds: </span>
+            <span>{props.gmtOffSetMilliseconds}</span>
+          </div>
         </div>
 
         <div className="popup-content">
-          <span>Market Time </span>
-          <span>{props.regularMarketTime.fmt} / </span>
-          <span>{props.regularMarketTime.raw}</span>
-        </div>
+          <span>headSymbol </span>
+          <i
+            className={`symbols fa fa-${
+              props.headSymbol === false ? 'times minus' : 'check plus'
+            }`}
+            aria-hidden="true"></i>
+          <span>Tradeable </span>
+          <i
+            className={`symbols fa fa-${
+              props.tradeable === false ? 'times minus' : 'check plus'
+            }`}></i>
+          <span>Triggerable </span>
 
-        <div className="popup-content">
-          <span>sourceInterval </span>
-          <span>{props.sourceInterval}</span>
-        </div>
+          <i
+            className={`symbols fa fa-${
+              props.triggerable === false ? 'times minus' : 'check plus'
+            }`}></i>
+          <span>contractSymbol </span>
 
-        <div className="popup-content">
-          <span>tradeable </span>
-          <span>{props.tradeable}</span>
-        </div>
-        <div className="popup-content">
-          <span>triggerable </span>
-          <span>{props.triggerable}</span>
+          <i
+            className={`symbols fa fa-${
+              props.contractSymbol === false ? 'times minus' : 'check plus'
+            }`}></i>
         </div>
       </div>
     </div>
