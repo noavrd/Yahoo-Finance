@@ -127,9 +127,6 @@ a {
 }
 @media only screen and (max-width: 768px) {
   body {
-    /* height: 110vh; */
-    /* background-size: cover; */
-    /* background-size: 'contain'; */
     height: 90%;
     background-attachment: fixed;
   }

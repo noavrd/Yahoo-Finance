@@ -16,7 +16,7 @@ export default function Main() {
       .get('https://yfapi.net/v6/finance/quote/marketSummary', {
         params: { modules: 'defaultKeyStatistics,assetProfile' },
         headers: {
-          'x-api-key': 'UMLv55pR4y3qtq4FIVivA1saV2j1f2vT1rsSWj55',
+          'x-api-key': 'QoWb8SxCay4gXIKJHUmbr1T6CCudvYmeaQujztBr',
         },
       })
       .then((result) => {

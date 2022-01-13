@@ -12,7 +12,6 @@ export default function Login() {
   const [emailLog, setEmailLog] = useState('');
   const [passwordLog, setPasswordLog] = useState('');
   const [error, setError] = useState(null);
-  const [loader, setLoader] = useState(true);
 
   const signInWithEmail = () => {
     if ((emailLog !== '') & (passwordLog !== '')) {

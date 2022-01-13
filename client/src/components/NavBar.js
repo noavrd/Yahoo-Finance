@@ -5,8 +5,6 @@ import '../styles/navbar.css';
 export default function NavBar({ user }) {
   const [clicked, setClicked] = useState(false);
   const [userName, setUserName] = useState(user.displayName);
-  console.log(user);
-  console.log(user.displayName);
 
   useEffect(() => {
     setTimeout(() => {
