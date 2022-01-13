@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Main from './components/Main';
@@ -20,6 +20,7 @@ function App() {
   });
   console.log(user);
   // console.log(user);
+
   return (
     <div className="App">
       {user && <NavBar user={user} />}

@@ -4,13 +4,14 @@ import {
   getAuth,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import google from './5847f9cbcef1014c0b5e48c8-removebg-preview.png';
 export default function Login() {
   const [emailLog, setEmailLog] = useState('');
   const [passwordLog, setPasswordLog] = useState('');
   const [error, setError] = useState(null);
+  const [loader, setLoader] = useState(true);
 
   const signInWithEmail = () => {
     if ((emailLog !== '') & (passwordLog !== '')) {

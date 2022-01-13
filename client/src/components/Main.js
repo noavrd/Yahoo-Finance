@@ -7,6 +7,8 @@ import SingleMarket from './SingleMarket';
 export default function Main() {
   const [data, setData] = useState();
   const [clicked, setClicked] = useState(null);
+  const [loader, setLoader] = useState(true);
+
   useEffect(() => {
     axios
       .get('https://yfapi.net/v6/finance/quote/marketSummary', {
@@ -15,7 +17,10 @@ export default function Main() {
           'x-api-key': 'UMLv55pR4y3qtq4FIVivA1saV2j1f2vT1rsSWj55',
         },
       })
-      .then((result) => setData(result.data.marketSummaryResponse.result))
+      .then((result) => {
+        setData(result.data.marketSummaryResponse.result);
+        setLoader(false);
+      })
       .catch((err) => console.log(err));
   }, []);
   const responsive = {
@@ -33,38 +38,47 @@ export default function Main() {
     },
   };
   console.log(data);
-  return (
-    <div className="main">
-      <h1 className="headline">Stock Market</h1>
-      <div className="all-markets">
-        {console.log(data)}
-        {data && (
-          <Carousel
-            responsive={responsive}
-            infinite={true}
-            keyBoardControl={true}>
-            {data &&
-              data.map((single, i) => (
-                <SingleMarket
-                  index={i}
-                  setClicked={setClicked}
-                  key={i}
-                  exchange={single.exchange}
-                  regularMarketChangeFMT={single.regularMarketChange.fmt}
-                  regularMarketChangePercentFMT={
-                    single.regularMarketChangePercent.fmt
-                  }
-                  regularMarketPriceFMT={single.regularMarketPrice.fmt}
-                  shortName={single.shortName}
-                />
-              ))}
-          </Carousel>
-        )}
+  if (loader) {
+    return (
+      <div className="main">
+        <h1 className="headline">Stock Market</h1>
+        <div className="loader"></div>
       </div>
-      {console.log(clicked)}
-      {clicked !== null && popup(data[clicked], setClicked)}
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="main">
+        <h1 className="headline">Stock Market</h1>
+        <div className="all-markets">
+          {console.log(data)}
+          {data && (
+            <Carousel
+              responsive={responsive}
+              infinite={true}
+              keyBoardControl={true}>
+              {data &&
+                data.map((single, i) => (
+                  <SingleMarket
+                    index={i}
+                    setClicked={setClicked}
+                    key={i}
+                    exchange={single.exchange}
+                    regularMarketChangeFMT={single.regularMarketChange.fmt}
+                    regularMarketChangePercentFMT={
+                      single.regularMarketChangePercent.fmt
+                    }
+                    regularMarketPriceFMT={single.regularMarketPrice.fmt}
+                    shortName={single.shortName}
+                  />
+                ))}
+            </Carousel>
+          )}
+        </div>
+        {console.log(clicked)}
+        {clicked !== null && popup(data[clicked], setClicked)}
+      </div>
+    );
+  }
 }
 
 function popup(props, setClicked) {
