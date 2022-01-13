@@ -1,5 +1,8 @@
 body {
-  background-image: url('./city-2403422_960_720.png');
+  background-image: url('./background-images-city-28.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* color: white; */
 }
 * {
   font-family: 'Hind Siliguri', sans-serif;
@@ -40,8 +43,8 @@ body {
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 40px rgba(206, 203, 231, 0.418);
   padding: 50px 35px;
-  opacity: 0.4;
-  background-color: rgba(41, 233, 137, 0.685);
+  opacity: 0.9;
+  background-color: rgb(248, 237, 237);
 
   /* background: rgba(255, 255, 255, 0.212); */
   /* background-color: rgba(255, 255, 255, 0.13); */
