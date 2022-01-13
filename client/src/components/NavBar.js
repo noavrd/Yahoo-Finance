@@ -3,14 +3,19 @@ import Logout from './Logout';
 
 export default function NavBar({ user }) {
   const [clicked, setClicked] = useState(false);
+  const [userName, setUserName] = useState(user.displayName);
   console.log(user);
   console.log(user.displayName);
 
-  useEffect(() => {}, [user.displayName]);
+  useEffect(() => {
+    setTimeout(() => {
+      setUserName(user.displayName);
+    }, 500);
+  }, []);
   return (
     <div className="navbar">
       <button onClick={() => setClicked(!clicked)} className="user-name">
-        {user.displayName}{' '}
+        {userName}{' '}
         {clicked ? (
           <i className="fa fa-angle-up" aria-hidden="true"></i>
         ) : (

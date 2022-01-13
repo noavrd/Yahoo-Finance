@@ -51,7 +51,6 @@ export default function Register({ user }) {
     }
   };
   useEffect(() => {
-    console.log(user !== null);
     if (user !== null) {
       navigate('/');
     }
@@ -61,7 +60,6 @@ export default function Register({ user }) {
       navigate('/');
     }
   }, [change]);
-  console.log(error);
   return (
     <div className="register">
       <div className="outside"> </div>
@@ -96,13 +94,9 @@ export default function Register({ user }) {
           className="register-click"
           onClick={() => {
             createUser();
-            if (error === null) {
-              console.log(error);
-            }
           }}>
           Register
         </button>
-        {console.log(email)}
         <div className="error-register">{error !== null ? error : ' '}</div>
         <br />
         <Link to={'/'}>
