@@ -1,0 +1,46 @@
+.input-login {
+  background-color: transparent;
+  border: none;
+  color: gray;
+}
+.or {
+  margin: 2vh 0;
+  font-size: 3vh;
+}
+
+.sign-in {
+  background-color: transparent;
+  border: none;
+  background-repeat: no-repeat;
+}
+.google {
+  cursor: pointer;
+  height: 5.5vh;
+  width: 3vw;
+}
+.dont-have {
+  margin-top: 1vh;
+  font-weight: bolder;
+}
+
+#username,
+#password {
+  border: none;
+  font-size: 3vh;
+  width: 20vw;
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+#password {
+  margin: 2vh 0;
+}
+@media only screen and (max-width: 768px) {
+  #username,
+  #password {
+    width: 60vw;
+  }
+  .google {
+    width: 8vw;
+  }
+}

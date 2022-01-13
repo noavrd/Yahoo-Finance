@@ -6,6 +6,7 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import '../styles/register.css';
 
 export default function Register({ user }) {
   const [email, setEmail] = useState('');

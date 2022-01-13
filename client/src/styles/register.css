@@ -1,0 +1,28 @@
+.home {
+  position: absolute;
+  margin-top: 4vh;
+  left: 2vw;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+.input-register {
+  font-size: 2.5vh;
+  margin-top: 2vh;
+  text-align: left;
+  width: 20vw;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+}
+.input-register:focus {
+  outline: none;
+}
+.register-click {
+  margin-top: 2vh;
+}
+@media only screen and (max-width: 768px) {
+  .input-register {
+    width: 60vw;
+  }
+}

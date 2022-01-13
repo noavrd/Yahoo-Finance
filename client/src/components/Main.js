@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import SingleMarket from './SingleMarket';
+import '../styles/loader.css';
+import '../styles/popup.css';
 
 export default function Main() {
   const [data, setData] = useState();
@@ -97,7 +99,7 @@ function popup(props, setClicked) {
       </button>
       <div>
         <span className="popup-headline">{props.shortName}</span>
-        <span className="popup-second-headline">({props.symbol})</span>
+        <span>({props.symbol})</span>
       </div>
       <div className="details">
         <div className="popup-content second-headline">

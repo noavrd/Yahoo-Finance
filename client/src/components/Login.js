@@ -4,7 +4,8 @@ import {
   getAuth,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import '../styles/login.css';
 import { Link } from 'react-router-dom';
 import google from './5847f9cbcef1014c0b5e48c8-removebg-preview.png';
 export default function Login() {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Logout from './Logout';
+import '../styles/navbar.css';
 
 export default function NavBar({ user }) {
   const [clicked, setClicked] = useState(false);
@@ -14,7 +15,7 @@ export default function NavBar({ user }) {
   }, []);
   return (
     <div className="navbar">
-      <button onClick={() => setClicked(!clicked)} className="user-name">
+      <div onClick={() => setClicked(!clicked)} className="user-name">
         {userName}{' '}
         {clicked ? (
           <i className="fa fa-angle-up" aria-hidden="true"></i>
@@ -22,7 +23,7 @@ export default function NavBar({ user }) {
           <i className="fa fa-angle-down" aria-hidden="true"></i>
         )}
         {clicked && <Logout />}
-      </button>
+      </div>
     </div>
   );
 }
