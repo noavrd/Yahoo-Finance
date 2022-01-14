@@ -19,9 +19,7 @@ export default function Login() {
       const auth = getAuth(firebaseAuth);
       signInWithEmailAndPassword(auth, emailLog, passwordLog)
         .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          // ...
+          console.log('Sign in successful');
         })
         .catch((error) => {
           console.log(error);

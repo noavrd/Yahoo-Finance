@@ -11,13 +11,14 @@ app.get('/', (request, response) => {
 });
 
 app.get('/stocks', async (request, response) => {
-  const searchText = request.query.searchText;
+  let searchText = request.query.searchText;
+
   const options = {
     method: 'GET',
     url: 'https://yfapi.net/v6/finance/quote/marketSummary',
     params: { modules: 'defaultKeyStatistics,assetProfile' },
     headers: {
-      'x-api-key': 'QoWb8SxCay4gXIKJHUmbr1T6CCudvYmeaQujztBr',
+      'x-api-key': 'UMLv55pR4y3qtq4FIVivA1saV2j1f2vT1rsSWj55',
     },
   };
   let allData = [];
@@ -30,53 +31,41 @@ app.get('/stocks', async (request, response) => {
     .catch((error) => {
       response.status(500).send(error);
     });
-
   if (searchText) {
-    console.log(22222);
-
+    searchText = searchText.toString().toLowerCase();
     for (let i = 0; i < allData.length; i++) {
-      console.log(allData[i]['exchange'].toLowerCase());
-      if (
-        (await allData[i]['exchange'].toLowerCase().indexOf(searchText)) !== -1
-      ) {
+      if (await allData[i]['exchange'].toLowerCase().includes(searchText)) {
         filterData.push(allData[i]);
-        console.log('enterrr');
       } else if (
-        (await allData[i]['regularMarketChange']['fmt']
-          .toLowerCase()
-          .indexOf(searchText)) !== -1
+        await allData[i]['regularMarketChange']['fmt'].includes(searchText)
       ) {
         filterData.push(allData[i]);
       } else if (
-        (await allData[i]['regularMarketChangePercent']['fmt']
-          .toLowerCase()
-          .indexOf(searchText)) !== -1
+        await allData[i]['regularMarketChangePercent']['fmt'].includes(
+          searchText
+        )
       ) {
         filterData.push(allData[i]);
       } else if (
-        (await allData[i]['regularMarketPrice']['fmt']
-          .toLowerCase()
-          .indexOf(searchText)) !== -1
+        await allData[i]['regularMarketPrice']['fmt'].includes(searchText)
       ) {
         filterData.push(allData[i]);
-      } else if (
-        (await allData[i]['shortName'].toLowerCase().indexOf(searchText)) !== -1
-      ) {
-        filterData.push(allData[i]);
+      } else if (await allData[i]['shortName']) {
+        if (await allData[i]['shortName'].toLowerCase().includes(searchText)) {
+          filterData.push(allData[i]);
+        }
       }
     }
-    console.log(filterData);
-    if (filterData.length === 0) {
-      console.log(33333);
 
-      await response.status(404).send('No Match Found');
+    if (filterData.length === 0) {
+      response.status(404).send('No Match Found');
+      return;
+    } else {
+      response.status(200).json(filterData);
       return;
     }
-
-    await response.status(200).json(filterData);
   } else {
-    console.log(111111111);
-    await response.send(allData);
+    response.send(allData);
     return;
   }
 });

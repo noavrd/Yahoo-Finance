@@ -9,7 +9,10 @@ body {
 * {
   font-family: 'Hind Siliguri', sans-serif;
 }
-
+.not-found {
+  text-align: center;
+  font-size: 4vh;
+}
 .headline-login,
 .register-headline {
   font-family: 'Merriweather Sans', sans-serif;
@@ -75,7 +78,6 @@ body {
 a {
   text-decoration: none;
   color: black;
-  /* color: white; */
 }
 
 .main {
@@ -123,6 +125,47 @@ a {
 }
 
 .market-name {
+  font-size: 3vh;
+}
+.search {
+  text-align: center;
+}
+.filter {
+  background-color: rgba(255, 255, 255, 0.767);
+  border: none;
+  color: white;
+  border: none;
+  font-size: 3vh;
+  width: 20vw;
+  color: black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+  border-radius: 10px 0 0 10px;
+  padding-left: 2vw;
+}
+
+.filter:focus {
+  outline: none;
+}
+
+.filter-btn {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.767);
+  border: none;
+  color: white;
+  border: none;
+  font-size: 3vh;
+  color: black;
+  border-bottom: 1px solid black;
+}
+
+#all-data-btn {
+  border-left: 1px solid black;
+  border-radius: 0 10px 10px 0;
+}
+
+.no-match {
+  text-align: center;
   font-size: 3vh;
 }
 @media only screen and (max-width: 768px) {

@@ -10,20 +10,21 @@ export default function Main() {
   const [data, setData] = useState();
   const [clicked, setClicked] = useState(null);
   const [loader, setLoader] = useState(true);
+  const [error, setError] = useState('');
+  const [searchValue, setSearchValue] = useState('');
+  const [loaderData, setLoaderData] = useState(false);
 
-  useEffect(() => {
-    axios
-      .get('https://yfapi.net/v6/finance/quote/marketSummary', {
-        params: { modules: 'defaultKeyStatistics,assetProfile' },
-        headers: {
-          'x-api-key': 'QoWb8SxCay4gXIKJHUmbr1T6CCudvYmeaQujztBr',
-        },
-      })
+  // const [search, setSearch] = useState('');
+
+  useEffect(async () => {
+    setError('');
+    await axios
+      .get('http://localhost:3001/stocks')
       .then((result) => {
-        setData(result.data.marketSummaryResponse.result);
+        setData(result.data);
         setLoader(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setError(err));
   }, []);
   const responsive = {
     desktop: {
@@ -39,7 +40,26 @@ export default function Main() {
       items: 1,
     },
   };
-  console.log(data);
+
+  async function search(value) {
+    setLoaderData(true);
+
+    setError('');
+    setData([]);
+    console.log(value);
+    await axios
+      .get(`http://localhost:3001/stocks?searchText=${value}`)
+      .then((response) => {
+        setData(response.data);
+        setError('');
+        setLoaderData(false);
+      })
+      .catch((err) => {
+        setError('No Match Found');
+        console.log(err);
+        setLoaderData(false);
+      });
+  }
   if (loader) {
     return (
       <div className="main">
@@ -51,8 +71,28 @@ export default function Main() {
     return (
       <div className="main">
         <h1 className="headline">Stock Market</h1>
+        <div className="search">
+          <input
+            className="filter"
+            onChange={(e) => setSearchValue(e.target.value)}
+            placeholder="search..."
+          />
+          <button
+            className="filter-btn"
+            id="search-btn"
+            onClick={() => search(searchValue)}>
+            Search
+          </button>
+          <button
+            className="filter-btn"
+            id="all-data-btn"
+            onClick={() => search('')}>
+            Show All
+          </button>
+        </div>
         <div className="all-markets">
-          {console.log(data)}
+          {loaderData && <div className="loader"></div>}
+          {error !== '' && <div className="no-match">{error}</div>}
           {data && (
             <Carousel
               responsive={responsive}
@@ -76,7 +116,6 @@ export default function Main() {
             </Carousel>
           )}
         </div>
-        {console.log(clicked)}
         {clicked !== null && popup(data[clicked], setClicked)}
       </div>
     );
@@ -85,7 +124,6 @@ export default function Main() {
 
 function popup(props, setClicked) {
   const change = (elem) => {
-    console.log(elem);
     if (elem[0] === '-') {
       return 'minus';
     }
@@ -93,7 +131,6 @@ function popup(props, setClicked) {
   };
   return (
     <div className="popup-container">
-      {console.log(props)}
       <button onClick={() => setClicked(null)} className="close-popup-btn">
         X
       </button>
