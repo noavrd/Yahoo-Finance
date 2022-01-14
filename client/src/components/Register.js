@@ -25,9 +25,14 @@ export default function Register({ user }) {
       (lastName !== '')
     ) {
       setError(null);
-      setFirstName(firstName.charAt(0).toUpperCase() + firstName.slice(1));
-      setLastName(lastName.charAt(0).toUpperCase() + lastName.slice(1));
-      const displayName = firstName + ' ' + lastName;
+      // setFirstName(firstName.charAt(0).toUpperCase() + firstName.slice(1));
+      // setLastName(lastName.charAt(0).toUpperCase() + lastName.slice(1));
+      const displayName =
+        firstName.charAt(0).toUpperCase() +
+        firstName.slice(1) +
+        ' ' +
+        lastName.charAt(0).toUpperCase() +
+        lastName.slice(1);
       const auth = getAuth(firebaseAuth);
       await createUserWithEmailAndPassword(auth, email, password, displayName)
         .then((userCredential) => {

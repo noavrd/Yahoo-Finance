@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 export default function SingleMarket(props) {
-  // const [showMore, setShowMore] = useState(false);
   const [plus, setPlus] = useState(true);
   const handle = () => {
     props.setClicked(props.index);

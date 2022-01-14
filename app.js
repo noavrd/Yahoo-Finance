@@ -18,7 +18,7 @@ app.get('/stocks', async (request, response) => {
     url: 'https://yfapi.net/v6/finance/quote/marketSummary',
     params: { modules: 'defaultKeyStatistics,assetProfile' },
     headers: {
-      'x-api-key': 'UMLv55pR4y3qtq4FIVivA1saV2j1f2vT1rsSWj55',
+      'x-api-key': 'CqQxYjeITx7oDG6fxepN44Cu5n4c15hS7EFnmgwm',
     },
   };
   let allData = [];

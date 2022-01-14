@@ -54,7 +54,7 @@ body {
 
 .sign-email,
 .register-click {
-  width: 20vw;
+  width: 24vw;
   background-color: #ffffff;
   color: #080710;
   padding: 10px 0;
@@ -102,10 +102,11 @@ a {
 }
 
 .single-market {
-  margin-left: 8vw;
+  margin-left: 10vw;
   font-weight: bolder;
-  padding-left: 1vw;
+  padding-left: -3vw;
   transition: 0.4s;
+  width: 25vw;
 }
 .single-market:hover {
   border-radius: 10px;
@@ -183,5 +184,22 @@ a {
   .sign-email,
   .register-click {
     width: 60vw;
+  }
+
+  .single-market {
+    margin-left: 35vw;
+    width: 45vw;
+  }
+
+  .headline {
+    margin-top: -8vh;
+  }
+
+  .search {
+    margin-top: -5vh;
+  }
+
+  .filter {
+    width: 45vw;
   }
 }
