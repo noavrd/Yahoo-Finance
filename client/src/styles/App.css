@@ -102,7 +102,7 @@ a {
 }
 
 .single-market {
-  margin-left: 10vw;
+  margin-left: 8vw;
   font-weight: bolder;
   padding-left: -3vw;
   transition: 0.4s;
@@ -188,7 +188,7 @@ a {
 
   .single-market {
     margin-left: 35vw;
-    width: 45vw;
+    width: 50vw;
   }
 
   .headline {
@@ -200,6 +200,13 @@ a {
   }
 
   .filter {
+    width: 45vw;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 464px) {
+  .single-market {
+    margin-left: 65vw;
     width: 45vw;
   }
 }
